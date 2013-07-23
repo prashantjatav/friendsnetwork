@@ -1,0 +1,118 @@
+<h1>User Profile</h1>
+
+
+
+<table class="table table-condensed">
+<tr>Name-</tr>
+<tr class="success">
+<td><%= @user.profile.first_name %></td>
+<td><%= @user.profile.middle_name %></td>
+<td><%= @user.profile.last_name %></td>
+</tr>
+</table>
+
+<table class="table table-condensed">
+<tr>Language-</tr>
+<tr class="success">
+<td><%= @user.profile.language %></td>
+</tr>
+
+<table class="table table-condensed">
+<tr>Link-</tr>
+<tr class="success">
+<td><%= @user.profile.link %></td>
+
+</tr>
+
+<table class="table table-condensed">
+<tr>Birthday-</tr>
+<tr class="success">
+<td><%= @user.birthdate %></td>
+</tr>
+
+<table class="table table-condensed">
+<tr>Hometown-</tr>
+<tr class="success">
+<td><%= @user.profile.hometown %></td>
+</tr>
+</table>
+
+<table class="table table-condensed">
+<tr>Current Location-</tr>
+<tr class="success">
+<td><%= @user.profile.location %></td>
+</tr>
+</table>
+
+<table class="table table-condensed">
+<tr>Interested In-</tr>
+<tr class="success">
+<td><%= @user.profile.interested_in %></td>
+</tr>
+</table>
+
+<table class="table table-condensed">
+<tr>Political View-</tr>
+<tr class="success">
+<td><%= @user.profile.political %></td>
+</tr>
+</table>
+
+<table class="table table-condensed">
+<tr>Favourite Sport-</tr>
+<tr class="success">
+<td><%= @user.profile.favourite_sport %></td>
+</tr>
+</table>
+
+<table class="table table-condensed">
+<tr>Favourite Movie-</tr>
+<tr class="success">
+<td><%= @user.profile.favourite_movie %></td>
+</tr>
+</table>
+
+<table class="table table-condensed">
+<tr>Relationship Status-</tr>
+<tr class="success">
+<td><%= @user.profile.relationship_status %></td>
+</tr>
+</table>
+
+<table class="table table-condensed">
+<tr>Religion-</tr>
+<tr class="success">
+<td><%= @user.profile.religion %></td>
+</tr>
+</table>
+
+<table class="table table-condensed">
+<tr>Work-</tr>
+<tr class="success">
+<td><%= @user.profile.work %></td>
+</tr>
+</table>
+
+<table class="table table-condensed">
+<tr>Education-</tr>
+<tr class="success">
+<td><%= @user.profile.education %></td>
+</tr>
+</table>
+
+<table class="table table-condensed">
+<tr>Website-</tr>
+<tr class="success">
+<td><%= @user.profile.website %></td>
+</tr>
+</table>
+
+<table class="table table-condensed">
+<tr>Quote-</tr>
+<tr class="success">
+<td><%= @user.profile.quote %></td>
+</tr>
+
+</table>
+
+<li><%= link_to "Edit", edit_user_profile_path(current_user)  %></li>

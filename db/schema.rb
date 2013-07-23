@@ -10,7 +10,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130719064337) do
+ActiveRecord::Schema.define(:version => 20130720104610) do
+
+  create_table "profiles", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "last_name"
+    t.string   "language"
+    t.string   "link"
+    t.string   "hometown"
+    t.string   "location"
+    t.string   "interested_in"
+    t.string   "political"
+    t.string   "favourite_sport"
+    t.string   "favourite_movie"
+    t.string   "relationship_status"
+    t.string   "religion"
+    t.string   "work"
+    t.string   "education"
+    t.string   "website"
+    t.string   "quote"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "first_name"

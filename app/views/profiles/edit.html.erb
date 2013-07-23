@@ -1,0 +1,107 @@
+<h1>Edit form</h1>
+
+<%=form_for @user do |f| %>
+  <% if @user.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited
+      this post from being saved:</h2>
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <%= f.fields_for :profile do |profile| %>
+  
+  <p>
+    <%= profile.label :First_name %>
+    <%= profile.text_field :first_name %>
+  </p>
+ 
+  <p>
+  <%= profile.label :Middle_name %>
+  <%= profile.text_field :middle_name %>  
+  </p>
+  
+  <p>
+  <%= profile.label :Last_name %>
+  <%= profile.text_field :last_name %>  
+  </p>
+  
+  <p>
+  <%= profile.label :Language %>
+  <%= profile.text_field :language %>  
+  </p>
+  
+  <p>
+  <%= profile.label :Link %>
+  <%= profile.text_field :link %>  
+  </p>
+  
+  <p>
+  <%= profile.label :Hometown %>
+  <%= profile.text_field :hometown %>  
+  </p>
+  
+  <p>
+  <%= profile.label :Location %>
+  <%= profile.text_field :location %>  
+  </p>
+  
+  <p>
+  <%= profile.label :Interested_In %>
+  <%= profile.text_field :interested_in %>  
+  </p>
+  
+  <p>
+  <%= profile.label :Political_View %>
+  <%= profile.text_field :political %>  
+  </p>
+  
+  <p>
+  <%= profile.label :Favourite_Sport %>
+  <%= profile.text_field :favourite_sport %>  
+  </p>
+  
+  <p>
+  <%= profile.label :Favourite_movie %>
+  <%= profile.text_field :favourite_movie%>  
+  </p>
+  
+  <p>
+  <%= profile.label :Relationship_Status %>
+  <%= profile.text_field :relationship_status %>  
+  </p>
+  
+  <p>
+  <%= profile.label :Religion %>
+  <%= profile.text_field :religion %>  
+  </p>
+  
+  <p>
+  <%= profile.label :Work %>
+  <%= profile.text_field :work %>  
+  </p>
+  
+  <p>
+  <%= profile.label :Education %>
+  <%= profile.text_field :education %>  
+  </p>
+  
+  <p>
+  <%= profile.label :Website %>
+  <%= profile.text_field :website %>  
+  </p>
+  
+  <p>
+  <%= profile.label :Quote %>
+  <%= profile.text_field :quote %>  
+  </p>
+  
+  <% end %>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
