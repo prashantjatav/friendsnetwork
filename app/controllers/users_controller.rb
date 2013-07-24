@@ -1,27 +1,27 @@
 class UsersController < ApplicationController
-  
-  def new
-  @user = User.new
-  @user.build_address
-  end
-  
+   
   def index
   
   end
   
+  def edit
+  @user = User.find(params[:id])
+  end
   
   def create
-   @user =  User.includes(:profile).where(:id => params[:user_id]).first
-   @user.profile.save!
+    
   end
   
   def update
-  @user =  User.includes(:profile).where(:id => params[:user_id]).first
-  redirect_to user_profile_path(:user_id => current_user.id, :id => current_user.id)
-  #redirect_to user_profile_path(:user_id => current_user.id, :id => current_user.id)
+   @user = User.find(current_user.id)
+    if @user.update_attributes(params[:user])
+    redirect_to user_path(:id => current_user.id)
+    flash[:success] = "Profile updated"
+   end
   end
   
   def show
   @user = User.find(params[:id])
   end
+  
 end
