@@ -10,7 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130720104610) do
+ActiveRecord::Schema.define(:version => 20130725073509) do
+
+  create_table "photos", :force => true do |t|
+    t.integer  "imagable_id"
+    t.string   "imagable_type"
+    t.string   "image"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"

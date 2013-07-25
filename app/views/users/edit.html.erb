@@ -1,4 +1,4 @@
-<h1>Edit form</h1>
+<h1>Edit form</h1><br>
 
 <%=form_for @user do |f| %>
   
@@ -88,6 +88,14 @@
   <%= profile.label :Quote %>
   <%= profile.text_field :quote %>  
   </p>
+  
+  <%= profile.fields_for :photo do |photo| %>
+    <p>
+     <%= photo.label :Change_profile_picture %>
+     <%= photo.file_field :image %>
+    </p>
+   <% end %>
+  
   
   <% end %>
 

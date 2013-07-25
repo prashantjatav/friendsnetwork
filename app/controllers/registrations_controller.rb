@@ -6,7 +6,8 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     @user = User.new(params[:user])
-    @user.build_profile
+    profile = @user.build_profile
+    profile.build_photo
     if @user.save
       redirect_to root_path
     else

@@ -1,5 +1,6 @@
 Friendsnetwork::Application.routes.draw do
 
+
   get "homes/index"
 
   devise_for :users, :controllers => { :registrations => "registrations"}
@@ -20,6 +21,8 @@ Friendsnetwork::Application.routes.draw do
   resources :users do
     resources :profiles
   end
+  
+  resources :photos
   # Sample resource route with options:
   #   resources :user do
   #     member do
