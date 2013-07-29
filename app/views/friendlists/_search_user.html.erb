@@ -1,0 +1,7 @@
+<% if !@users.empty? %>
+<%@users.each do |u|%>
+<br>
+<li><%= link_to u.email, user_path(:id => u.id)  %></li>
+<%end%>
+<% end %>
+

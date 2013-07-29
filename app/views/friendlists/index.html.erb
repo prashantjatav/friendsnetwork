@@ -1,0 +1,28 @@
+<h1>Search Friends </h1><br>
+
+Enter your name: <br><input type="text" id="search" >
+<br/>
+<div id="mySpan">
+
+</div>
+
+
+<script type="text/javascript">
+$(function() {
+  
+$('#search').keyup(function() {
+var keyword = ($(this).val());
+
+$.ajax({
+type: "GET",
+url: "friendlists/search_user",
+data: { name: keyword }
+}).done(function( res ) {
+$('#mySpan').html(res)
+
+});
+
+});
+
+});
+</script>

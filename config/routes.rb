@@ -1,7 +1,8 @@
 Friendsnetwork::Application.routes.draw do
 
-
+  get "users/search"
   get "homes/index"
+  
 
   devise_for :users, :controllers => { :registrations => "registrations"}
 
@@ -20,6 +21,13 @@ Friendsnetwork::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   resources :users do
     resources :profiles
+    resources :friends
+  end
+  
+  resources :friendlists do
+    collection do
+      get 'search_user'
+    end
   end
   
   resources :photos
