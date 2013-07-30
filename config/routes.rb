@@ -3,6 +3,7 @@ Friendsnetwork::Application.routes.draw do
   get "users/search"
   get "homes/index"
   
+  
 
   devise_for :users, :controllers => { :registrations => "registrations"}
 
@@ -27,6 +28,11 @@ Friendsnetwork::Application.routes.draw do
   resources :friendlists do
     collection do
       get 'search_user'
+      post 'add_friend'
+      get 'check'
+    end
+    member do
+      
     end
   end
   
