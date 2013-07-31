@@ -1,12 +1,10 @@
-<% unless @user.pending_friends.empty? %>
-<% @user.pending_friends.each do |u| %>
-<%= link_to u.login, user_path(u.id) %>
-Since <%= u.created_at.to_s(:long) %>
-<% if logged_in? && @user = current_user %>
-<%= link_to '[Accept]', user_friend_path(:user_id => current_user, :id => u), :method => :put, :confirm => 'Accept friend request! Are you sure?' %> |
-<%= link_to '[Reject]', user_friend_path(:user_id => current_user, :id => u), :method => :delete, :confirm => 'Reject friend request! Are you sure?' %>
-<% end %>
-<% end %>
-<% else %>
-            None
+
+<% @pending_requests.each do |u| %>
+<div class="span5 navbar-inner">
+<%=link_to u.friend.email %>
+<div class="pull-right">
+<%= link_to '[Accept]', friendlist_path(:id => u.friend_id), :method => :put, :confirm => 'Accept friend request! Are you sure?' %> |
+<%= link_to '[Reject]', friendlist_path(:id => u.friend_id), :method => :delete, :confirm => 'Reject friend request! Are you sure?' %>
+</div>
+</div>
 <% end %>

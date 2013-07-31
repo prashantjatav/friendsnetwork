@@ -3,7 +3,10 @@ class FriendsController < ApplicationController
 before_filter :login_required, :except => [:index, :show]
 
 def index
-@user = User.find(params[:user_id])
+ @user = User.find(params[:user_id])
+ @current_friends = Friendlist.current_friends(current_user.id)
+ @pending_requests = Friendlist.pending_requests(current_user.id)
+ @requested_friends = Friendlist.requested_friends(current_user.id)
 end
 
 def show
@@ -48,7 +51,6 @@ def destroy
 @user = User.find(params[:user_id])
 @friend = User.find(params[:id])
 @friendlist1 = @user.friendlists.find_by_friend_id(params[:id]).destroy
-@friendship2 = @friend.friendlists.find_by_user_id(params[:id]).destroy
 redirect_to user_friends_path(:user_id => current_user)
 end
 

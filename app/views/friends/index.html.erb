@@ -2,13 +2,13 @@ My Friends:
 <% unless @user == current_user %>
 You do not have permission to access this page!
 <% else %>
-<br><br>
-Current Friends:
+<br><br><br>
+Current Friends:<br>
 <%= render :partial => 'friends/friends' %>
-<br><br>
-Requested Friends:
+<br><br><br>
+Requested Friends:<br>
 <%= render :partial => 'friends/requested_friends' %>
-<br><br>
-Pending Friends:
+<br><br><br>
+Pending Friends:<br>
 <%= render :partial => 'friends/pending_friends' %>
 <% end %>

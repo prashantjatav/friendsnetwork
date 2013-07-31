@@ -1,11 +1,9 @@
-<% unless @user.requested_friends.empty? %>
-<% @user.requested_friends.each do |u| %>
-<%= link_to u.login, user_path(u.id) %>
-Since <%= u.created_at.to_s(:long) %>
-<% if logged_in? && @user = current_user %>
-<%= link_to '[Cancel]', user_friend_path(:user_id => current_user, :id => u), :method => :delete, :confirm => 'Are you sure?' %>
-<% end %>
-<% end %>
-<% else %>
-None
+
+<% @requested_friends.each do |u| %>
+<div class="span5 navbar-inner">
+<%=link_to u.friend.email, {:action => "show", :controller => "users", :id => u.friend_id } %>
+<div class="pull-right">
+<%= link_to '[Cancel]', friendlist_path(:id => u.friend_id), :method => :delete, :confirm => 'Are you sure?' %>
+</div>
+</div>
 <% end %>

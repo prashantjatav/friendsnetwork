@@ -2,9 +2,9 @@ class User < ActiveRecord::Base
 
   has_one :profile
   has_many :friendlists, :dependent => :destroy
-  has_many :friends, :through => :friendlists, :conditions => "status = 'accepted'"
-  has_many :requested_friends, :through => :friendlists, :source => :friend, :conditions => "status = 'requested'", :order => :created_at
-  has_many :pending_friends, :through => :friendlists, :source => :friend, :conditions => "status = 'pending'", :order => :created_at
+  has_many :friends, :through => :friendlists , :conditions => "status = 'accepted'"
+  has_many :requested_friends, :through => :friendlists, :source => :user, :conditions => "status = 'requested'", :order => :created_at
+  has_many :pending_friends, :through => :friendlists, :source => :user, :conditions => "status = 'pending'", :order => :created_at
   accepts_nested_attributes_for :profile
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,

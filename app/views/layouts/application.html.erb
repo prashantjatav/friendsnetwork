@@ -82,9 +82,9 @@
                 <%= current_user.profile.first_name %></h3></li>
                 
               <%= image_tag current_user.profile.photo.image.thumb.url %>
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li><%= link_to "Home", homes_index_path  %></li>
+              <li><%= link_to "Profile", user_path(:id => current_user.id) %></li>
+              <li><%= link_to "Friends", user_friends_path(:user_id => current_user.id) %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
