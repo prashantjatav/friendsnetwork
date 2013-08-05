@@ -1,6 +1,12 @@
 class HomesController < ApplicationController
-  def index
 
+  def new
+   
   end
+  def index
+ 
+  end
+  def create
   
+  end
 end

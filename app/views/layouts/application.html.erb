@@ -49,7 +49,7 @@
           <div class="container-fluid nav-collapse">
             <ul class="nav">
               <% if current_user.present? %>
-              <li><%= link_to "Home", homes_index_path  %></li>
+              <li><%= link_to "Home", posts_path  %></li>
               <li><%= link_to "Profile", user_path(:id => current_user.id) %></li>
               <li><%= link_to "Friends", user_friends_path(:user_id => current_user.id) %></li>
               <li><%= link_to "Search Friends", friendlists_path %></li>
@@ -81,10 +81,11 @@
               <li class="nav-header"><h3>
                 <%= current_user.profile.first_name %></h3></li>
                 
-              <%= image_tag current_user.profile.photo.image.thumb.url %>
-              <li><%= link_to "Home", homes_index_path  %></li>
+              <%= image_tag current_user.profile.photo.image.thumb.url %><br><br>
+              <li><%= link_to "Home", posts_path %></li>
               <li><%= link_to "Profile", user_path(:id => current_user.id) %></li>
               <li><%= link_to "Friends", user_friends_path(:user_id => current_user.id) %></li>
+              <li><%= link_to "Search Friends", friendlists_path %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
@@ -96,7 +97,7 @@
       </div><!--/row-->
 
       <footer>
-        <p>&copy; Company 2013</p>
+        <p></p>
       </footer>
 
     </div> <!-- /container -->

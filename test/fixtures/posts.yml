@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  reciever_id: 1
+  sender_id: 1
+  message: MyString
+  share_with: MyString
+
+two:
+  reciever_id: 1
+  sender_id: 1
+  message: MyString
+  share_with: MyString

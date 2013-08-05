@@ -43,4 +43,4 @@ end
 # gem 'capistrano'
 
 # To use debugger
-# gem 'ruby-debug'
+ gem 'ruby-debug'

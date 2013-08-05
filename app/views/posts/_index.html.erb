@@ -1,0 +1,16 @@
+<%= form_for @post do |f| %>
+    <%= f.label :Share_something %>
+    
+    <%= f.text_area :message, :id=>"text", :rows => 3, :class => "form-control", :style => "width: 649px" %>
+    
+    <div class="navbar navbar-fluid-top">
+      <div class="span9 navbar-inner">Share photo
+          <%= f.fields_for :photos do |photo| %>
+          <%= photo.file_field :image %>
+          <%end%>
+          <div class="pull-right">
+            <%= button_tag 'Share', :class => "btn btn-small", :id => "share" %>
+          </div>
+      </div>  
+    </div>
+<% end %>

@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
 
   has_one :profile
+  has_many :posts, :foreign_key =>'sender_id'
+  has_many :comments
+  has_many :likes
   has_many :friendlists, :dependent => :destroy
   has_many :friends, :through => :friendlists , :conditions => "status = 'accepted'"
   has_many :requested_friends, :through => :friendlists, :source => :user, :conditions => "status = 'requested'", :order => :created_at

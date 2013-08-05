@@ -1,40 +1,21 @@
-
-<%@users.each do |u|%>
+<% @users.each do |u| %>
 
 <div class="navbar navbar-fluid-top">
-      <div class="span5 navbar-inner">
-        <div class="container-fluid">
-         <br>
-         <li><%= link_to u.email , {:action => "show", :controller => "users", :id => u.id } %></li>
-          <%= image_tag u.profile.photo.image.thumb.url %>
-           <div class="pull-right">
-           
-           <div id="<%= u.id %>" onload="check(this.id)">
-           
-           <% if !(u.email==current_user.email) %>
-           <%= button_tag 'Add friend', :class => "btn btn-default", :id => "#{u.id}", :onClick=>"addfriend(this.id)" %>
-           <% end %> 
-           </div>
-           </div>
-    
-    </div><br>
-   </div>
-</div>
+    <div class="span5 navbar-inner">
+      <div class="container-fluid">
+        <br>
+        <li><%= link_to u.email , {:action => "show", :controller => "users", :id => u.id } %></li>
+        <%= image_tag u.profile.photo.image.thumb.url %>
+        <div class="pull-right">
+        <% @return_val = check_user(current_user.id, u.id)%>
+          <% if @return_val==1 %>
+            <% if !(u.email==current_user.email) %>
+              <%= button_tag 'Add friend', :class => "btn btn-default", :id => "#{u.id}", :onClick=>"addfriend(this)" %>
+            <% end %>
+          <% end %> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 <%end%>
-
-<script type="text/javascript">
-  
- function addfriend(friendid) 
-  {
-   var f = friendid;
-   $.ajax({
-   type: "POST",
-   url: "friendlists/add_friend",
-   data: { friend_id: f  }
-   }).done(function( res ) {
-   $('#mySpan').html(res)
-   });
-  };
-
-
-</script>

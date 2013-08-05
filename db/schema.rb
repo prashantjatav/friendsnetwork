@@ -10,12 +10,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130726062440) do
+ActiveRecord::Schema.define(:version => 20130805100310) do
+
+  create_table "comments", :force => true do |t|
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.string   "comment"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "friendlists", :force => true do |t|
     t.integer  "user_id"
     t.integer  "friend_id"
     t.string   "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "likes", :force => true do |t|
+    t.integer  "post_id"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -26,6 +41,15 @@ ActiveRecord::Schema.define(:version => 20130726062440) do
     t.string   "image"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "posts", :force => true do |t|
+    t.integer  "reciever_id"
+    t.integer  "sender_id"
+    t.string   "message"
+    t.string   "share_with"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "profiles", :force => true do |t|

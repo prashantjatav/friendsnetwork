@@ -1,0 +1,71 @@
+<%= render :partial=> 'posts/index' %>
+
+<br>
+<% @posts.each do |post| %>
+<br>
+<div class="span9  well well-large">
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+      <%=image_tag post.user.profile.photo.image.small.url%>
+      <%= post.user.profile.first_name %>:</h3>
+    </div>
+    <div class="horizontalRule">
+    </div>
+    <%= post.message %><br>
+    <%= image_tag post.photos.first.image.thumb.url rescue "" %><br><br>
+    <div class="horizontalRule">
+    </div><br>
+      <% post.likes.each do |like| %>
+          <strong><%= l.user.profile.first_name %>:</strong>
+      <%end%>
+      <div id="myspan1_<%= post.id%>">  
+      </div>
+      <div class="pull-right">
+        <input type="button" value="like" id="<%= post.id%>" class="like_button" >
+      </div>
+
+      <div class="horizontalRule">
+    </div><br>
+    <% post.comments.each do |c| %>
+      <div class="span11  well well-small">
+            <%=image_tag c.user.profile.photo.image.small.url %>
+             <strong><%= c.user.profile.first_name %>:</strong>
+        <%= c.comment %><br>
+      </div>
+    <%end%>
+    <div id="myspan_<%= post.id%>">
+    
+    </div>
+    <div class="span11  well well-small">
+      <%= image_tag current_user.profile.photo.image.small.url%>
+      <%= current_user.profile.first_name %>
+      <input type="text" id="box_<%= post.id%>" class="textbox" >
+      <input type="button" value="comment" id="<%= post.id%>" class="button" >
+  </div>
+    
+  </div>
+</div>
+<% end %>
+
+
+
+<script type="text/javascript">
+
+$(function(){
+ $('.like_button').click(function(this){
+ var id = (this.id);
+ $.ajax({
+ type: 'POST',
+ url: 'posts/add_like',
+ data: {p_id: id}
+ }).done(function(ret){
+   $(this).css('display','none');
+   $('#myspan1_'+id).append(ret);
+ });
+
+ });
+});
+
+</script>
+

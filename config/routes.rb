@@ -1,7 +1,6 @@
 Friendsnetwork::Application.routes.draw do
 
   get "users/search"
-  get "homes/index"
   
   
 
@@ -25,6 +24,17 @@ Friendsnetwork::Application.routes.draw do
     resources :friends
   end
   
+  resources :posts do
+   member do
+    
+   end
+   collection do
+     post 'add_comment'
+     post 'add_like'
+   end
+   resources :comments
+   resources :likes
+  end 
   resources :friendlists do
     collection do
       get 'search_user'
@@ -35,7 +45,7 @@ Friendsnetwork::Application.routes.draw do
       
     end
   end
-  
+  resources :homes
   resources :photos
   # Sample resource route with options:
   #   resources :user do
