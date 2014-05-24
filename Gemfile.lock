@@ -67,9 +67,9 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.23)
     multi_json (1.7.7)
+    mysql2 (0.3.16)
     nifty-generators (0.4.6)
     orm_adapter (0.4.0)
-    pg (0.15.1)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -139,8 +139,8 @@ DEPENDENCIES
   devise
   jquery-rails
   json
+  mysql2
   nifty-generators
-  pg
   rails (= 3.2.6)
   rmagick
   ruby-debug
